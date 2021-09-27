@@ -26,8 +26,7 @@ async function generateQr() {
 
 async function generatorPDF(req, res) {
 
-    console.log("1")
-    const pdf = req.file.buffer
+    const pdf = req.file.buffer;
     const qr = await generateQr();
     const qrImg = qr.split(';base64,').pop();
 
@@ -36,8 +35,8 @@ async function generatorPDF(req, res) {
 
     const imagePage = pdfDoc.getPage(0);
 
-    let xx = imagePage.getWidth()
-    let yy = imagePage.getHeight()
+    let xx = imagePage.getWidth();
+    let yy = imagePage.getHeight();
 
     imagePage.drawImage(img, {
         x: xx - 70,
